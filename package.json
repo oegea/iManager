@@ -1,0 +1,49 @@
+{
+  "name": "item-manager",
+  "version": "1.0.0",
+  "description": "Basic frontend application to list an items list.",
+  "main": "src/index.ts",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --mode development",
+    "build": "webpack --mode production",
+    "test": "jest"
+  },
+  "author": "Oriol Egea",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.15.0",
+    "@types/enzyme": "^3.10.10",
+    "@types/jest": "^27.0.2",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.5",
+    "babel-jest": "^27.3.1",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.5.0",
+    "enzyme": "^3.11.0",
+    "html-webpack-plugin": "^5.5.0",
+    "jest": "^27.3.1",
+    "sass": "^1.43.4",
+    "sass-loader": "^12.3.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.61.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.4.0"
+  },
+  "dependencies": {
+    "@types/react": "^17.0.33",
+    "@types/react-dom": "^17.0.10",
+    "axios": "^0.24.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.4.4"
+  },
+  "jest": {
+    "setupFilesAfterEnv": ["<rootDir>/test-setup.js"],
+    "testEnvironment": "jsdom"
+  }
+}
