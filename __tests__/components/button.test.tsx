@@ -15,7 +15,7 @@ describe('Test App component', () => {
     let wrapper : ShallowWrapper<typeof Button>;
 
     beforeAll(() => {
-        wrapper = shallow(<Button label={DEFAULT_LABEL}/>)
+        wrapper = shallow(<Button>{DEFAULT_LABEL}</Button>)
     })
 
     it('should be contained inside a div', () => {
@@ -42,7 +42,7 @@ describe('Test App component', () => {
         const BACKGROUND = "green";
         const COLOR = "blue";
 
-        const customButton = shallow(<Button label={DEFAULT_LABEL} background={BACKGROUND} color={COLOR}/>);
+        const customButton = shallow(<Button background={BACKGROUND} color={COLOR}>{DEFAULT_LABEL}</Button>);
         const buttonStyle = customButton.prop('style');
 
         expect(buttonStyle).toHaveProperty("background", BACKGROUND);
