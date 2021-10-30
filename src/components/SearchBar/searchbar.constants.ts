@@ -1,2 +1,2 @@
 export const DEFAULT_PLACEHOLDER = 'Search';
-export const other = 'test';
+export const ENTER_KEY = 'Enter';

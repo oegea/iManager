@@ -3,11 +3,12 @@ import { shallow, ShallowWrapper } from 'enzyme';
 import SearchBar from '.';
 
 // Constants
-import { DEFAULT_PLACEHOLDER } from './searchbar.constants';
+import { DEFAULT_PLACEHOLDER, ENTER_KEY } from './searchbar.constants';
 
 describe('Test SearchBar component', () => {
   // Constants
   const DEFAULT_VALUE = 'Test Value';
+  const SHIFT_KEY = 'Shift';
 
   // Common variables
   let wrapper : ShallowWrapper<typeof SearchBar>;
@@ -34,15 +35,31 @@ describe('Test SearchBar component', () => {
     expect(inputElement.props()).toHaveProperty('value', DEFAULT_VALUE);
   });
 
-  /* it('should update the text when writing on it', () => {
+  it('should update the text when writing on it', () => {
     const NEW_VALUE = 'New Test Value';
     const inputElement = wrapper.find('input');
     inputElement.simulate('change', { target: { value: NEW_VALUE } });
+    wrapper.update();
 
-    expect(inputElement.props()).toHaveProperty('value', NEW_VALUE);
-  }); */
+    const inputProps = wrapper.find('input').props();
+    expect(inputProps).toHaveProperty('value', NEW_VALUE);
+  });
 
   it('should invoke a callback function when enter is pressed', () => {
+    const enterCallback = jest.fn();
+    wrapper = shallow(<SearchBar value={DEFAULT_VALUE} onSearch={enterCallback} />);
 
+    wrapper.find('input').simulate('keypress', { key: ENTER_KEY });
+
+    expect(enterCallback).toBeCalled();
+  });
+
+  it('should not invoke a callback function when other key different than enter is pressed', () => {
+    const keyCallback = jest.fn();
+    wrapper = shallow(<SearchBar value={DEFAULT_VALUE} onSearch={keyCallback} />);
+
+    wrapper.find('input').simulate('keypress', { key: SHIFT_KEY });
+
+    expect(keyCallback).toBeCalledTimes(0);
   });
 });

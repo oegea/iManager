@@ -4,7 +4,8 @@
 interface ButtonProps{
     color?: string;
     background?: string;
-    children: any;
+    children: string;
+    onClick?: () => void;
 }
 
 export default ButtonProps;

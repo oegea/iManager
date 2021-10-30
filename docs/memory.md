@@ -121,7 +121,7 @@ There are a lot of good practices that could be implemented during an applicatio
 
 * **Atomic components should be decoupled from the app:**
 
-  Small components from the interface should be atomic, and should be able to work on a different environment or application.
+  Small components should be atomic, and should be able to work without requiring common dependencies from the application.
 
 * **Comment methods and complex decisions:** 
 

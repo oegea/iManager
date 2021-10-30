@@ -9,6 +9,8 @@ describe('Test Button component', () => {
   // Constants
   const DEFAULT_LABEL = 'Default Label';
   const DEFAULT_BUTTON_CLASS = 'button';
+  const ENTER_KEY = 'Enter';
+  const SHIFT_KEY = 'Shift';
 
   // Common variables
   let wrapper : ShallowWrapper<typeof Button>;
@@ -48,5 +50,32 @@ describe('Test Button component', () => {
 
     expect(buttonStyle).toHaveProperty('background', BACKGROUND);
     expect(buttonStyle).toHaveProperty('color', COLOR);
+  });
+
+  it('should invoke a callback function when button is clicked', () => {
+    const clickCallback = jest.fn();
+    wrapper = shallow(<Button onClick={clickCallback}>{DEFAULT_LABEL}</Button>);
+
+    wrapper.simulate('click');
+
+    expect(clickCallback).toBeCalled();
+  });
+
+  it('should invoke a callback function when button is focused and enter is pressed', () => {
+    const clickCallback = jest.fn();
+    wrapper = shallow(<Button onClick={clickCallback}>{DEFAULT_LABEL}</Button>);
+
+    wrapper.find('div').simulate('keypress', { key: ENTER_KEY });
+
+    expect(clickCallback).toBeCalled();
+  });
+
+  it('should not invoke a callback function when button is focused and other key different than enter is pressed', () => {
+    const clickCallback = jest.fn();
+    wrapper = shallow(<Button onClick={clickCallback}>{DEFAULT_LABEL}</Button>);
+
+    wrapper.find('div').simulate('keypress', { key: SHIFT_KEY });
+
+    expect(clickCallback).toBeCalledTimes(0);
   });
 });
