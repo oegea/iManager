@@ -10,8 +10,8 @@ import SearchBar from './components/SearchBar';
 
 const App = () => (
   <div>
-    <Button>Hola</Button>
-    <SearchBar />
+    <Button onClick={() => { alert('Hello'); }}>Hola</Button>
+    <SearchBar onSearch={(search) => { alert(search); }} />
   </div>
 );
 ReactDom.render(<App />, document.getElementById('root') as HTMLElement);
