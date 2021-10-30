@@ -1,9 +1,11 @@
 @use '../components/Button/button.styles.scss';
 @use '../components/SearchBar/searchbar.styles.scss';
+@use '../components//Toolbar/toolbar.styles.scss';
 
 body { 
     background: white;
     font-family: 'Helvetica', 'Arial', sans-serif;
     font-size: 14px;
     color: black;
+    margin: 0;
 }
