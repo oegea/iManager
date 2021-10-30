@@ -9,7 +9,8 @@
   "scripts": {
     "start": "webpack-dev-server --mode development",
     "build": "webpack --mode production",
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "author": "Oriol Egea",
   "license": "MIT",
@@ -20,11 +21,19 @@
     "@babel/preset-typescript": "^7.15.0",
     "@types/enzyme": "^3.10.10",
     "@types/jest": "^27.0.2",
+    "@types/react-dom": "^17.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.2.0",
+    "@typescript-eslint/parser": "^5.2.0",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.5",
     "babel-jest": "^27.3.1",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.5.0",
-    "enzyme": "^3.11.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.26.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^27.3.1",
     "sass": "^1.43.4",
@@ -36,14 +45,16 @@
   },
   "dependencies": {
     "@types/react": "^17.0.33",
-    "@types/react-dom": "^17.0.10",
     "axios": "^0.24.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "typescript": "^4.4.4"
+    "typescript": "^4.4.4",
+    "enzyme": "^3.11.0"
   },
   "jest": {
-    "setupFilesAfterEnv": ["<rootDir>/test-setup.js"],
+    "setupFilesAfterEnv": [
+      "<rootDir>/test-setup.js"
+    ],
     "testEnvironment": "jsdom"
   }
 }

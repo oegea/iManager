@@ -105,6 +105,7 @@ These are the selected libraries to implement the project:
 * **Webpack:** To group all app's files to bundle files.
 * **Babel:** To transpile TypeScript, new Javascript features, and other things with compatibility purposes.
 * **TypeScript:** To have an environment with types.
+* **EsLint:** To automatically analyze the code style and fix it.
 * **ReactJs:** As the main framework to build the app interface. To take advantatge of TypeScript, classic class components are used instead of hooks.
 * **Axios:** To perform http requests.
 * **SCSS:** As a CSS pre-processor.
@@ -117,6 +118,11 @@ There are a lot of good practices that could be implemented during an applicatio
 * **Keep everything small:** 
 
   This means following the SRP in all possible aspects. Being sure that methods, classes, and components are small will increase the application mantainability.
+
+* **Atomic components should be decoupled from the app:**
+
+  Small components from the interface should be atomic, and should be able to work on a different environment or application.
+
 * **Comment methods and complex decisions:** 
 
   To improve navigation through methods and make future developments easier, each method needs to be documented with JsDocs. 
@@ -145,17 +151,17 @@ As a first step, the project needs to be initialized with `npm init`.
 
 ### Webpack and babel installation
 
-Then, `webpack` dependencies need to be installed with the following command: 
+`webpack` dependencies need to be installed with the following command: 
 
 - `npm i --save-dev webpack webpack-cli webpack-dev-server html-webpack-plugin`
 
 Before configuring `webpack`, `babel` has been installed with the following command: 
-
+q
 - `npm i --save-dev @babel/core babel-loader @babel/preset-env @babel/preset-react @babel/preset-typescript`.
 
 With these libraries, and after configuring them, the application will be able to be bundled and transpiled. 
 
-After installing dependencies, basic `webpack` and `babel` configuration files have been created, and start and build scripts have been also added to the `package.json` file.
+After installing dependencies, basic `webpack` and `babel` configuration files have been created, and `start` and `build` scripts have been also added to the `package.json` file.
 
 ### Typescript and React installation
 
@@ -189,11 +195,23 @@ Jest and Enzyme are used in this project to write unit and integration tests, to
 
 After installing these libraries, the `test-setup.js` file has been created to configure the enzyme adapter. Also, the `package.json` file has been modified to reference to the just created `test-setup.js` file.
 
+### EsLint
+
+EsLint is a static analyzer that ensures that the code style follows specific guidelines.
+
+During this project, we'll use EsLint alongside with a Visual Studio Code plugin, to automatically fix the code when style errors are detected.
+
+The following command has been executed to install EsLint in the project: 
+
+* `npm i --save-dev eslint`
+
+After that, the command `eslint --init` has ben runned to initialize EsLint. And the Visual Studio Code plugin has been also installed and configured to enable automatic errors detecting and fixing.
+
 ### Project scaffolding
 
 To organize and ensure project tidiness, the following project scaffolding has been configured:
 
-* tests (contained in the root folder, outside the `src` directory)
+* \_\_tests\_\_
 * components
 * constants
 * styles
@@ -201,7 +219,11 @@ To organize and ensure project tidiness, the following project scaffolding has b
 * libs
 * api
 
-To ensure that the project has an intuitive approach, internal structure of `tests`, `components`, `constants` and `styles` is very similar, so the developer can know a component's style just looking for the same subfolder path in the `styles` folder, or can access to related tests just looking to the appropiate subfolder path inside the `tests` folder.
+The purpose of each directory should be self-descriptible enough to understand the project. However, it's important to remark that these common folders only contain files that are required in more than one module of the project.
+
+Components are as small, atomics and decoupled from the rest of the application as possible, so they have their required files and dependencies inside their own specific folder.
+
+This should help to ensure a better decoupled environment, and help the developer to increase focus while working on an specific component.
 
 ### Final refinations
 

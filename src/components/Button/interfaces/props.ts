@@ -1,8 +1,10 @@
 /**
  * Properties available for the Button component
  */
-export default interface ButtonProps{
+interface ButtonProps{
     color?: string;
     background?: string;
     children: any;
 }
+
+export default ButtonProps;

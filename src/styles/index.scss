@@ -1,4 +1,5 @@
-@use './components/button.scss';
+@use '../components/Button/button.styles.scss';
+@use '../components/SearchBar/searchbar.styles.scss';
 
 body { 
     background: white;
