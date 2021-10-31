@@ -30,10 +30,19 @@ const ItemCard = (props:ItemCardProps) => {
       <div className="image">
         <img src={image} alt={title} />
       </div>
-      <div className="price" />
+      <div className="price">
+        {price}
+        {' '}
+        EUR
+      </div>
       <div className="title">{title}</div>
-      <div className="email" />
+
       <div className="description">{description}</div>
+      <div className="email">
+        De:
+        {' '}
+        {email}
+      </div>
       <div className="buttons">
         <Button onClick={onClick}>{buttonLabel}</Button>
       </div>

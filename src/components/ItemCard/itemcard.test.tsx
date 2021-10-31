@@ -39,13 +39,43 @@ describe('Test ItemCard tests', () => {
     expect(wrapper.find('.description').text()).toBe(DEFAULT_DESCRIPTION);
   });
 
+  it('should disply the expected price', () => {
+    expect(wrapper.find('.price').text()).toBe(`${DEFAULT_PRICE} EUR`);
+  });
+
+  it('should display the expected e-mail', () => {
+    expect(wrapper.find('.email').text()).toBe(`De: ${DEFAULT_EMAIL}`);
+  });
+
   it('should display the "add to favourites" button', () => {
     expect(wrapper.find('Button')).toHaveLength(1);
   });
 
-  // it should have a button with the label received by props
+  it('should have a button with the label received by props', () => {
+    expect(wrapper.find('Button').prop('children')).toBe(DEFAULT_BUTTON_LABEL);
+  });
 
-  // it should call the expected callback when the button is clicked
+  it('should call the expected callback when the button is clicked', () => {
+    const callback = jest.fn();
 
-  // it should not call any callback if it hasn't been specified on props
+    const itemCard = shallow(<ItemCard
+      title={DEFAULT_TITLE}
+      description={DEFAULT_DESCRIPTION}
+      price={DEFAULT_PRICE}
+      email={DEFAULT_EMAIL}
+      image={DEFAULT_IMAGE}
+      buttonLabel={DEFAULT_BUTTON_LABEL}
+      onButtonClick={callback}
+    />);
+
+    itemCard.find('Button').simulate('click');
+
+    expect(callback).toBeCalled();
+  });
+
+  it('should not call any callback if it hasn\'t been specified on props', () => {
+    const callback = jest.fn();
+    wrapper.find('Button').simulate('click');
+    expect(callback).toBeCalledTimes(0);
+  });
 });

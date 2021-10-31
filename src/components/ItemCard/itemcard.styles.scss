@@ -1,0 +1,37 @@
+.item{
+    width: 300px;
+    max-width: 300px;
+    border: 1px solid #818181;
+    border-radius: 5px;
+    padding-bottom: 10px;
+    .image{
+        max-height: 200px;
+        overflow: hidden;
+        img{
+            width: 100%;
+        }
+    }
+
+    .price, .title, .email, .description, .buttons{
+        padding: 10px 10px 0 10px;
+    }
+
+    .price{
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .title{
+        font-size:16px;
+    }
+
+    .email{
+        font-size: 12px;
+    }
+
+    .buttons{
+        margin: 10px 0;
+    }
+
+
+}
