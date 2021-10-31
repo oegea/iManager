@@ -12,6 +12,7 @@ import Toolbar from './components/Toolbar';
 const App = () => (
   <div>
     <Toolbar label="iManager" onFavouritesClick={() => { alert('Opening favourites'); }} onSearch={() => { alert('Searching'); }} />
+
   </div>
 );
 ReactDom.render(<App />, document.getElementById('root') as HTMLElement);

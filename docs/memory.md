@@ -237,7 +237,14 @@ The first step in the implementation, has been to develop low-level visual compo
 
 For this stage, prototype and user stories have been took in consideration to know which components were required.
 
-Components have been implemented by writing unit tests first, then making the real implementation, and finally manual testing the result (invoking the components from a browser) and refining the result and the unit tests.
+Components have been implemented by writing unit tests first, then making the real implementation, and finally manual testing the result (invoking the components from a browser) and refining the result, styles and the unit tests.
+
+This is the order in which components have been developed, starting from smaller ones:
+
+* Button
+* SearchBar
+* Toolbar
+* ItemCard
 
 ## Routing and basic logic
 

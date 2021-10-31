@@ -1,6 +1,7 @@
 @use '../components/Button/button.styles.scss';
 @use '../components/SearchBar/searchbar.styles.scss';
-@use '../components//Toolbar/toolbar.styles.scss';
+@use '../components/Toolbar/toolbar.styles.scss';
+@use '../components/ItemCard/itemcard.styles.scss';
 
 body { 
     background: white;
