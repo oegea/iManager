@@ -2,6 +2,7 @@
 @use '../components/SearchBar/searchbar.styles.scss';
 @use '../components/Toolbar/toolbar.styles.scss';
 @use '../components/ItemCard/itemcard.styles.scss';
+@use '../components/ItemsGrid/itemsgrid.styles.scss';
 
 body { 
     background: white;
@@ -12,5 +13,5 @@ body {
 }
 
 .body-wrapper{
-    margin: 30px;
+    margin: 50px 0;
 }

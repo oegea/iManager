@@ -245,8 +245,14 @@ This is the order in which components have been developed, starting from smaller
 * SearchBar
 * Toolbar
 * ItemCard
+* ItemsGrid
+
 
 ## Routing and basic logic
+
+Although there were needed more visual components, at this point the implementation of logic-components started, starting by the implementation of a component to handle the application state and all state-related interactions.
+
+A state manager (like Redux) hasn't been used to implement this kind of logic due to the simple logic and the limited scope of this application. However, notice that it should be implemented in case of extending the application scope or adding more components or interactions.
 
 ## Data Retrieving
 

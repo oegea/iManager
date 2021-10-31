@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, ShallowWrapper, mount } from 'enzyme';
+import { shallow, ShallowWrapper } from 'enzyme';
 import ItemCard from '.';
 
 // Constants

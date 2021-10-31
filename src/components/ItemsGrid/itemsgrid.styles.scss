@@ -1,0 +1,23 @@
+.items-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;  
+
+    @media (min-width: 740px) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: 1060px) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media (min-width: 1400px){
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    @media (min-width: 1700px){
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+    
+}
