@@ -1,8 +1,8 @@
 @use '../components/Button/button.styles.scss';
-@use '../components/SearchBar/searchbar.styles.scss';
+@use '../components/SearchBar/search-bar.styles.scss';
 @use '../components/Toolbar/toolbar.styles.scss';
-@use '../components/ItemCard/itemcard.styles.scss';
-@use '../components/ItemsGrid/itemsgrid.styles.scss';
+@use '../components/ItemCard/item-card.styles.scss';
+@use '../components/ItemsGrid/items-grid.styles.scss';
 
 body { 
     background: white;

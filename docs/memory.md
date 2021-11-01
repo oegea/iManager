@@ -107,6 +107,7 @@ These are the selected libraries to implement the project:
 * **TypeScript:** To have an environment with types.
 * **EsLint:** To automatically analyze the code style and fix it.
 * **ReactJs:** As the main framework to build the app interface. To take advantatge of TypeScript, classic class components are used instead of hooks.
+* **Recoil:** For a simple app state management.
 * **Axios:** To perform http requests.
 * **SCSS:** As a CSS pre-processor.
 * **Jest & Enzyme:** To test implemented components.
@@ -163,11 +164,11 @@ With these libraries, and after configuring them, the application will be able t
 
 After installing dependencies, basic `webpack` and `babel` configuration files have been created, and `start` and `build` scripts have been also added to the `package.json` file.
 
-### Typescript and React installation
+### Typescript React and Recoil installation
 
-Now that we have `webpack` and `babel`, we need to install `typescript` and `react` dependencies: 
+Now that we have `webpack` and `babel`, we need to install `typescript`, `react` and `recoil` dependencies: 
 
-- `npm i typescript react react-dom @types/react @types/react-dom`
+- `npm i typescript react react-dom recoil @types/react @types/react-dom`
 
 ### Basic files
 
@@ -247,14 +248,22 @@ This is the order in which components have been developed, starting from smaller
 * ItemCard
 * ItemsGrid
 
+## Basic logic and state management
 
-## Routing and basic logic
+Although there were needed more visual components, at this point the implementation of logic-components started, starting by the implementation of the following components:
 
-Although there were needed more visual components, at this point the implementation of logic-components started, starting by the implementation of a component to handle the application state and all state-related interactions.
+* ItemCardHandler (which basically is a wrapper for the ItemCard component, and manages the state of favourite items)
 
-A state manager (like Redux) hasn't been used to implement this kind of logic due to the simple logic and the limited scope of this application. However, notice that it should be implemented in case of extending the application scope or adding more components or interactions.
+## Data retrieving
 
-## Data Retrieving
+Two interfaces have been described to retrieve real data for the provided endpoint:
+
+* HttpClient: To describe the operations that a basic http client should implement. 
+* ItemsApi: To describe the operations available to retrieve items and interact with them.
+
+The first interface aims to offer an easy way to change the http client from axios to another.
+
+The second one, aims to offer also an easy way to implement a real web service to retrieve items, and abstracts the sorting and filtering logic that at this moment is performed by the browser, but in a real environment will be likely performed by a web service.
 
 ## Building the logic and 
 

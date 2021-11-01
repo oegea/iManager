@@ -7,6 +7,11 @@ import { DEFAULT_BUTTON_BACKGROUND, DEFAULT_BUTTON_COLOR, ENTER_KEY } from './bu
 // Interfaces
 import ButtonProps from './interfaces/props';
 
+/**
+ * A simple button to be used in the interface
+ * @param props Properties to define the button behaviour
+ * @returns React component
+ */
 const Button = (props:ButtonProps) => {
   // Required variables
   const {

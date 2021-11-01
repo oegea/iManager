@@ -9,6 +9,11 @@ import Button from '../Button';
 // Interfaces
 import ItemCardProps from './interfaces/props';
 
+/**
+ * Renders the a sellable item details
+ * @param props Required properties
+ * @returns React component
+ */
 const ItemCard = (props:ItemCardProps) => {
   // Required variables
   const {
@@ -21,7 +26,11 @@ const ItemCard = (props:ItemCardProps) => {
    * Executed when the button is clicked
    */
   const onClick = () => {
-    if (onButtonClick) { onButtonClick(title, description); }
+    if (onButtonClick) {
+      onButtonClick({
+        title, description, price, email, image,
+      });
+    }
   };
 
   // Render
@@ -39,7 +48,7 @@ const ItemCard = (props:ItemCardProps) => {
 
       <div className="description">{description}</div>
       <div className="email">
-        De:
+        Seller:
         {' '}
         {email}
       </div>

@@ -3,7 +3,7 @@ import { shallow, ShallowWrapper } from 'enzyme';
 import SearchBar from '.';
 
 // Constants
-import { DEFAULT_PLACEHOLDER, ENTER_KEY } from './searchbar.constants';
+import { DEFAULT_PLACEHOLDER, ENTER_KEY } from './search-bar.constants';
 
 describe('Test SearchBar component', () => {
   // Constants

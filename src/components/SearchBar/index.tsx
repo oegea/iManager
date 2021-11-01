@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 // Constants
-import { DEFAULT_PLACEHOLDER, ENTER_KEY } from './searchbar.constants';
+import { DEFAULT_PLACEHOLDER, ENTER_KEY } from './search-bar.constants';
 
 // Interfaces
 import SearchBarProps from './interfaces/props';

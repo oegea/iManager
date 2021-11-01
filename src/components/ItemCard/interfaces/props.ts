@@ -5,7 +5,7 @@ import Item from '../../../interfaces/item';
  */
  interface ItemCardProps extends Item{
     buttonLabel?: string;
-    onButtonClick?: (title: string, email: string)=>void;
+    onButtonClick?: (item: Item)=>void;
 }
 
 export default ItemCardProps;

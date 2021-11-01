@@ -44,7 +44,7 @@ describe('Test ItemCard tests', () => {
   });
 
   it('should display the expected e-mail', () => {
-    expect(wrapper.find('.email').text()).toBe(`De: ${DEFAULT_EMAIL}`);
+    expect(wrapper.find('.email').text()).toBe(`Seller: ${DEFAULT_EMAIL}`);
   });
 
   it('should display the "add to favourites" button', () => {

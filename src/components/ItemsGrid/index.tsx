@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Components
-import ItemCard from '../ItemCard';
+import ItemCardHandler from '../ItemCardHandler';
 
 // Constants
 
@@ -21,15 +21,13 @@ const ItemsGrid = (props:ItemsGridProps) => {
   return (
     <div className="items-grid">
       {items.map((item) => (
-        <ItemCard
+        <ItemCardHandler
           key={`${item.title}-${item.email}`}
           title={item.title}
           description={item.description}
           price={item.price}
           email={item.email}
           image={item.image}
-          buttonLabel="Add to favourites"
-          onButtonClick={() => { alert('Hello'); }}
         />
       ))}
     </div>
