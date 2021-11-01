@@ -158,7 +158,7 @@ As a first step, the project needs to be initialized with `npm init`.
 
 Before configuring `webpack`, `babel` has been installed with the following command: 
 q
-- `npm i --save-dev @babel/core babel-loader @babel/preset-env @babel/preset-react @babel/preset-typescript`.
+- `npm i --save-dev @babel/core babel-loader @babel/preset-env @babel/preset-react @babel/preset-typescript @babel/plugin-transform-runtime`.
 
 With these libraries, and after configuring them, the application will be able to be bundled and transpiled. 
 

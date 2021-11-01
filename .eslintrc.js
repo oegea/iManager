@@ -31,5 +31,6 @@ module.exports = {
       0,
     ],
     'import/extensions': [0],
+    '@typescript-eslint/no-explicit-any': 'off',
   },
 };
