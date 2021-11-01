@@ -7,19 +7,22 @@ import Button from '../Button';
 
 // Constants
 import { SECONDARY_BUTTON_COLOR, SECONDARY_BUTTON_BACKGROUND } from '../Button/button.constants';
+import { SORTABLE_FIELDS } from './toolbar.constants';
 
 // Interfaces
 import ToolbarProps from './interfaces/props';
 
 const Toolbar = (props: ToolbarProps) => {
   // Required variables
-  const { label, onFavouritesClick, onSearch } = props;
+  const {
+    label, onFavouritesClick, onSearch, onSortBy,
+  } = props;
 
   return (
     <div className="toolbar">
       <div className="label">{label}</div>
       <div className="searchbar">
-        <SearchBar onSearch={onSearch} />
+        <SearchBar onSearch={onSearch} sortableFields={SORTABLE_FIELDS} onSortByField={onSortBy} />
       </div>
       <div className="favouritesButton">
         <Button

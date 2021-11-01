@@ -56,5 +56,12 @@ describe('Test Toolbar tests', () => {
       toolbar.find('input').simulate('keypress', { key: 'Enter' });
       expect(callback).toBeCalled();
     });
+
+    it('should call the expected callback when sort by is changed', () => {
+      const callback = jest.fn();
+      const toolbar = mount(<Toolbar label={DEFAULT_LABEL} onSortBy={callback} />);
+      toolbar.find('select').simulate('change', { target: { value: 'Email' } });
+      expect(callback).toBeCalled();
+    });
   });
 });

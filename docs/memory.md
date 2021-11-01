@@ -256,14 +256,14 @@ Although there were needed more visual components, at this point the implementat
 
 ## Data retrieving
 
-Two interfaces have been described to retrieve real data for the provided endpoint:
+Two interfaces have been described to retrieve data:
 
 * HttpClient: To describe the operations that a basic http client should implement. 
 * ItemsApi: To describe the operations available to retrieve items and interact with them.
 
-The first interface aims to offer an easy way to change the http client from axios to another.
+The first interface aims to offer an easy way to change the http client from axios to another if it's required in the future.
 
-The second one, aims to offer also an easy way to implement a real web service to retrieve items, and abstracts the sorting and filtering logic that at this moment is performed by the browser, but in a real environment will be likely performed by a web service.
+The second one aims to offer also an easy way to implement a real web service to retrieve items, and abstracts the sorting and filtering logic that at this moment is performed by the browser, but in a real environment will be likely performed by a web service.
 
 ## Building the logic and 
 

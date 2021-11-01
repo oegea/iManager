@@ -9,15 +9,18 @@ import SearchBarProps from './interfaces/props';
 
 const SearchBar = (props: SearchBarProps) => {
   // Required variables
-  const { value, onSearch } = props;
+  const {
+    value, onSearch, sortableFields, onSortByField,
+  } = props;
   const [searchText, setSearchText] = useState(value);
+  const [sortBy, setSortBy] = useState('Sort by');
 
   // Required functions
   /**
    * Executes search callback when enter is pressed
    * @param event Event data
    */
-  const onKeyPress = (event:{key:string}) => {
+  const onInputKeyPress = (event:{key:string}) => {
     if (event.key === ENTER_KEY && onSearch) { onSearch(searchText); }
   };
 
@@ -25,27 +28,37 @@ const SearchBar = (props: SearchBarProps) => {
    * Changes current search text
    * @param event Event data
    */
-  const onChange = (event:{target:{value:string}}) => {
+  const onInputChange = (event:{target:{value:string}}) => {
     setSearchText(event.target.value);
+  };
+
+  const onSelectChange = (event:{target:{value:string}}) => {
+    const newValue = event.target.value;
+    setSortBy(newValue);
+    if (onSortByField) { onSortByField(newValue); }
   };
 
   // Component render
   return (
-    <div className="searchbar">
+    <div className="searchbar-component">
       <input
         type="text"
         value={searchText}
         placeholder={DEFAULT_PLACEHOLDER}
-        onChange={onChange}
-        onKeyPress={onKeyPress}
+        onChange={onInputChange}
+        onKeyPress={onInputKeyPress}
       />
+      <select onChange={onSelectChange} value={sortBy}>
+        <option disabled>Sort by</option>
+        {sortableFields.map((field) => <option key={field}>{field}</option>)}
+      </select>
     </div>
   );
 };
 
 const defaultProps: SearchBarProps = {
   value: '',
-  onSearch: undefined,
+  sortableFields: [],
 };
 
 SearchBar.defaultProps = defaultProps;
