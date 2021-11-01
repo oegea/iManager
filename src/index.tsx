@@ -27,11 +27,14 @@ const App = () => {
   const [searchText, setSearchText] = useState<string>('');
   const [sortBy, setSortBy] = useState<string>('');
   const [currentPage, setPage] = useState<number>(0);
+  // itemsLoaded is used to know if there were more items on the last loaded page
+  const [itemsLoaded, setItemsLoaded] = useState<number>(0);
 
   useEffect(() => {
     const itemApi = new ItemApi(new AxiosClient());
     itemApi.search(searchText, sortBy, 5, currentPage)
       .then((itemsResult) => {
+        setItemsLoaded(itemsResult.length);
         setItems([...items, ...itemsResult]);
         setIsLoading(false);
       })
@@ -41,14 +44,28 @@ const App = () => {
   }, [searchText, sortBy, currentPage]);
 
   const onSearch = (text: string) => {
+    setItems([]);
+    setItemsLoaded(1);
+    setPage(0);
     setSearchText(text);
     setIsLoading(true);
   };
 
   const onSortBy = (field: string) => {
+    setItems([]);
+    setItemsLoaded(1);
+    setPage(0);
     setSortBy(field);
     setIsLoading(true);
   };
+
+  let itemsPagerTitle = 'Keep discovering more incredible items';
+  let showButton = true;
+
+  if (itemsLoaded === 0) {
+    itemsPagerTitle = "There weren't more items ='(";
+    showButton = false;
+  }
 
   return (
     <div>
@@ -58,7 +75,7 @@ const App = () => {
           {isLoading && <p>Loading...</p>}
           {!isLoading && <ItemsGrid items={items} />}
         </div>
-        <ItemsPager title="Keep discovering more incredible items" showButton buttonLabel="Load more items" onButtonClick={() => { setPage(currentPage + 1); }} />
+        <ItemsPager title={itemsPagerTitle} showButton={showButton} buttonLabel="Load more items" onButtonClick={() => { setPage(currentPage + 1); }} />
       </RecoilRoot>
     </div>
   );
