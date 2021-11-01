@@ -4,7 +4,7 @@
  interface ToolbarProps{
     label: string;
     onFavouritesClick?: ()=>void;
-    onSearch?: ()=>void;
+    onSearch?: (text:string)=>void;
 }
 
 export default ToolbarProps;

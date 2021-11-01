@@ -23,10 +23,12 @@ import ItemApi from './api/item-api';
 const App = () => {
   const [items, setItems] = useState<Array<Item>>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [searchText, setSearchText] = useState<string>('');
 
   useEffect(() => {
+    console.log('Side effect executed');
     const itemApi = new ItemApi(new AxiosClient());
-    itemApi.search('', '', 5, 1)
+    itemApi.search(searchText, '', 5, 1)
       .then((itemsResult) => {
         setItems(itemsResult);
         setIsLoading(false);
@@ -34,12 +36,17 @@ const App = () => {
       .catch(() => {
         setIsLoading(false);
       });
-  }, []);
+  }, [searchText]);
+
+  const onSearch = (text: string) => {
+    setSearchText(text);
+    setIsLoading(true);
+  };
 
   return (
     <div>
       <RecoilRoot>
-        <Toolbar label="iManager" onFavouritesClick={() => { alert('Opening favourites'); }} onSearch={() => { alert('Searching'); }} />
+        <Toolbar label="iManager" onFavouritesClick={() => { alert('Opening favourites'); }} onSearch={onSearch} />
         <div className="body-wrapper">
           {isLoading && <p>Loading...</p>}
           {!isLoading && <ItemsGrid items={items} />}
