@@ -36,6 +36,10 @@ class ItemApi implements ItemApiInterface {
        result = httpResult.items;
      }
 
+     if (sortBy.length > 0) {
+       result = ItemApi.sort(result, sortBy);
+     }
+
      if (filter.length > 0) {
        result = ItemApi.filter(result, filter);
      }
@@ -43,6 +47,7 @@ class ItemApi implements ItemApiInterface {
      return result;
    }
 
+   // #region Filter
    /**
     * Filters the result by the specified search
     * @param result Array of retrieved result
@@ -55,7 +60,7 @@ class ItemApi implements ItemApiInterface {
        const filterNumber = parseInt(filter, 10);
 
        // If filter is a number, we'll just filter by price
-       if (!Number.isNaN(filterNumber)) {
+       if (!Number.isNaN(filterNumber) && !/[a-zA-Z]/g.test(filter)) {
          return ItemApi.filterByNumber(item.price, filterNumber);
        }
 
@@ -98,6 +103,63 @@ class ItemApi implements ItemApiInterface {
           || lowerItemEmail.indexOf(lowerFilter) !== -1
      );
    }
+
+   // #endregion
+
+   // #region Sort
+
+   /**
+    * Sorts an item list
+    * @param result List to sort
+    * @param sortBy Field to sort by
+    * @returns Sorted list
+    */
+   static sort(result:Array<ItemInterface>, sortBy: string):Array<ItemInterface> {
+     return result.sort(ItemApi.evaluateOrder.bind(this, sortBy));
+   }
+
+   /**
+    * Given a sort criteria and two items, evaluates which of them should be the first
+    * @param sortBy Field to sort by
+    * @param firstItem First item
+    * @param secondItem Second item
+    * @returns -1 in case first item goes first, 1 in case second item goes first, 0 if equal
+    */
+   static evaluateOrder(sortBy: string, firstItem:ItemInterface, secondItem:ItemInterface):number {
+     const [firstItemValue, secondItemValue] = ItemApi.getFieldsForSort(
+       firstItem, secondItem, sortBy,
+     );
+
+     if (firstItemValue < secondItemValue) { return -1; }
+     if (firstItemValue > secondItemValue) { return 1; }
+     return 0;
+   }
+
+   /**
+    * Retrieves one specific field value from two different items
+    * @param firstItem First item from which select the required field
+    * @param secondItem Second item from which select the required field
+    * @param sortBy Field to retrieve
+    * @returns An array with the field values
+    */
+   static getFieldsForSort(firstItem: ItemInterface, secondItem: ItemInterface, sortBy: string) {
+     switch (sortBy) {
+       default:
+       case 'Title':
+         return [firstItem.title, secondItem.title];
+
+       case 'Email':
+         return [firstItem.email, secondItem.email];
+
+       case 'Description':
+         return [firstItem.description, secondItem.description];
+
+       case 'Price':
+         return [parseInt(firstItem.price, 10), parseInt(secondItem.price, 10)];
+     }
+   }
+
+  // #endregion
 }
 
 export default ItemApi;

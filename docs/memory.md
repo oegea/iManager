@@ -122,7 +122,7 @@ There are a lot of good practices that could be implemented during an applicatio
 
 * **Atomic components should be decoupled from the app:**
 
-  Small components should be atomic, and should be able to work without requiring common dependencies from the application.
+  Small components should be atomic, and should be able to work without requiring common dependencies from the application. Although this rule has not been applied in a though way, it has guided the application development during all the process.
 
 * **Comment methods and complex decisions:** 
 
@@ -213,6 +213,7 @@ After that, the command `eslint --init` has ben runned to initialize EsLint. And
 To organize and ensure project tidiness, the following project scaffolding has been configured:
 
 * \_\_tests\_\_
+* \_\_mocks\_\_
 * components
 * constants
 * styles

@@ -11,6 +11,7 @@
     "build": "webpack --mode production",
     "test": "jest",
     "test:coverage": "jest --coverage",
+    "test:verbose": "jest --verbose",
     "new-component": "cp -R src/components/Button src/components/$npm_config_name"
   },
   "author": "Oriol Egea",
