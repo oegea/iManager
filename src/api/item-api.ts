@@ -5,6 +5,9 @@ import ItemInterface from '../interfaces/item';
 
 // Libs
 class ItemApi implements ItemApiInterface {
+  // Constants
+  private ITEMS_URL = 'https://frontend-tech-test-data.s3.eu-west-1.amazonaws.com/items.json';
+
   /**
    * Instance of the used http client
    */
@@ -29,7 +32,7 @@ class ItemApi implements ItemApiInterface {
    async search(
      filter: string, sortBy: string, itemsPerPage: number, page: number,
    ):Promise<Array<ItemInterface>> {
-     const httpResult = await this.httpClient.get('https://frontend-tech-test-data.s3.eu-west-1.amazonaws.com/items.json');
+     const httpResult = await this.httpClient.get(this.ITEMS_URL);
      let result:Array<ItemInterface> = [];
 
      if (httpResult !== null) {
@@ -43,6 +46,9 @@ class ItemApi implements ItemApiInterface {
      if (filter.length > 0) {
        result = ItemApi.filter(result, filter);
      }
+
+     // Paging
+     result = ItemApi.pageItems(result, page, itemsPerPage);
 
      return result;
    }
@@ -159,7 +165,22 @@ class ItemApi implements ItemApiInterface {
      }
    }
 
-  // #endregion
+   // #endregion
+
+   // #region Paging
+   /**
+    * Pages a full array to display just a portion that corresponds to a specific page
+    * @param result Full array of results
+    * @param page Current page (starts at 0)
+    * @param itemsPerPage Items displayed per page
+    * @returns Portion of the array to include in the current page
+    */
+   static pageItems(result:Array<ItemInterface>, page:number, itemsPerPage:number) {
+     const start = (page * itemsPerPage);
+     const end = start + itemsPerPage;
+     return result.slice(start, end);
+   }
+   // #endregion
 }
 
 export default ItemApi;

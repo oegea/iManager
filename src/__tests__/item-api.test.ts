@@ -13,18 +13,18 @@ describe('Test ItemApi class', () => {
   });
 
   it('should retrieve a list of items when searching', async () => {
-    const result = await itemApi.search('', '', 5, 1);
+    const result = await itemApi.search('', '', 5, 0);
     expect(result).toHaveLength(2);
   });
 
   it('should return a reduced set of items if filters were specified', async () => {
-    const result = await itemApi.search('iPhone', 'Title', 5, 1);
+    const result = await itemApi.search('iPhone', 'Title', 5, 0);
     expect(result).toHaveLength(1);
   });
 
   it('should return an empty list if an error occurs while performing the http request', async () => {
     httpClient.setSimulateError(true);
-    const result = await itemApi.search('', '', 5, 1);
+    const result = await itemApi.search('', '', 5, 0);
     expect(result).toHaveLength(0);
   });
 
@@ -132,6 +132,18 @@ describe('Test ItemApi class', () => {
         title: 'a', description: '', price: '', email: '', image: '',
       }];
       expect(ItemApi.evaluateOrder('Title', items[0], items[1])).toBe(0);
+    });
+  });
+
+  describe('pageItems', () => {
+    it('should return the expected amount of items while paging', () => {
+      const firstPageResult = ItemApi.pageItems(DEFAULT_ITEMS_ARRAY, 0, 1);
+      expect(firstPageResult).toHaveLength(1);
+      expect(firstPageResult[0].title).toBe(DEFAULT_ITEMS_ARRAY[0].title);
+
+      const secondPageResult = ItemApi.pageItems(DEFAULT_ITEMS_ARRAY, 1, 1);
+      expect(secondPageResult).toHaveLength(1);
+      expect(secondPageResult[0].title).toBe(DEFAULT_ITEMS_ARRAY[1].title);
     });
   });
 });

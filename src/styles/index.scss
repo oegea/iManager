@@ -3,6 +3,7 @@
 @use '../components/Toolbar/toolbar.styles.scss';
 @use '../components/ItemCard/item-card.styles.scss';
 @use '../components/ItemsGrid/items-grid.styles.scss';
+@use '../components//ItemsPager//item-pager.styles.scss';
 
 body { 
     background: white;
@@ -13,5 +14,5 @@ body {
 }
 
 .body-wrapper{
-    margin: 50px 0;
+    margin: 50px 0 0 0;
 }

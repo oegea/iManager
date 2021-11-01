@@ -1,0 +1,17 @@
+.items-pager{
+    background: #15c0ac;
+    color: white;
+    height: 100px;
+    padding: 50px 25%;
+
+    .pager-title{
+        font-weight: bold;
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .button{
+        border: 2px solid white;
+        font-weight: bold;
+    }
+}
