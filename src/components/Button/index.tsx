@@ -24,7 +24,7 @@ const Button = (props:ButtonProps) => {
   };
 
   /**
-   * Executes search callback when enter is pressed
+   * Executes the button callback when enter is pressed
    * @param event Event data
    */
   const onKeyPress = (event:{key:string}) => {

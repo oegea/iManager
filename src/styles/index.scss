@@ -3,7 +3,8 @@
 @use '../components/Toolbar/toolbar.styles.scss';
 @use '../components/ItemCard/item-card.styles.scss';
 @use '../components/ItemsGrid/items-grid.styles.scss';
-@use '../components//ItemsPager//item-pager.styles.scss';
+@use '../components/ItemsPager//item-pager.styles.scss';
+@use '../components/Modal/modal.styles.scss';
 
 body { 
     background: white;

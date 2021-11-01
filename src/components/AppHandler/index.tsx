@@ -8,6 +8,7 @@ import Item from '../../interfaces/item';
 import Toolbar from '../Toolbar';
 import ItemsGrid from '../ItemsGrid';
 import ItemsPager from '../ItemsPager';
+import Modal from '../Modal';
 
 // Libs
 import AxiosClient from '../../libs/axios-client';
@@ -23,6 +24,7 @@ const AppHandler = () => {
   const [currentPage, setPage] = useState<number>(0);
   // itemsLoaded is used to know if there were more items on the last loaded page
   const [itemsLoaded, setItemsLoaded] = useState<number>(0);
+  const [showFavouritesModal, setShowFavouritesModal] = useState<boolean>(false);
 
   useEffect(() => {
     const itemApi = new ItemApi(new AxiosClient());
@@ -37,20 +39,21 @@ const AppHandler = () => {
       });
   }, [searchText, sortBy, currentPage]);
 
-  const onSearch = (text: string) => {
+  const resetSearch = () => {
     setItems([]);
     setItemsLoaded(1);
     setPage(0);
-    setSearchText(text);
     setIsLoading(true);
   };
 
+  const onSearch = (text: string) => {
+    resetSearch();
+    setSearchText(text);
+  };
+
   const onSortBy = (field: string) => {
-    setItems([]);
-    setItemsLoaded(1);
-    setPage(0);
+    resetSearch();
     setSortBy(field);
-    setIsLoading(true);
   };
 
   let itemsPagerTitle = 'Keep discovering more incredible items';
@@ -63,12 +66,19 @@ const AppHandler = () => {
 
   return (
     <>
-      <Toolbar label="iManager" onFavouritesClick={() => { alert('Opening favourites'); }} onSearch={onSearch} onSortBy={onSortBy} />
+      <Toolbar label="iManager" onFavouritesClick={() => { setShowFavouritesModal(true); }} onSearch={onSearch} onSortBy={onSortBy} />
       <div className="body-wrapper">
         {isLoading && <p>Loading...</p>}
         {!isLoading && <ItemsGrid items={items} />}
       </div>
       <ItemsPager title={itemsPagerTitle} showButton={showButton} buttonLabel="Load more items" onButtonClick={() => { setPage(currentPage + 1); }} />
+      {showFavouritesModal && (
+      <Modal
+        onClose={() => { setShowFavouritesModal(false); }}
+      >
+        Hola
+      </Modal>
+      )}
     </>
   );
 };

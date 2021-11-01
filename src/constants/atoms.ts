@@ -3,4 +3,4 @@ export const FAVOURITE_ITEMS = {
   default: [],
 };
 
-export const asd = 1;
+export default {};
