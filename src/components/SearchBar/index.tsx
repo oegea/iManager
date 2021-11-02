@@ -33,6 +33,10 @@ const SearchBar = (props: SearchBarProps) => {
     setSearchText(event.target.value);
   };
 
+  /**
+   * Fires an event when the order by select is changed
+   * @param event Event data
+   */
   const onSelectChange = (event:{target:{value:string}}) => {
     const newValue = event.target.value;
     setSortBy(newValue);
