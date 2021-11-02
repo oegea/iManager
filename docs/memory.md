@@ -106,7 +106,7 @@ These are the selected libraries to implement the project:
 * **Babel:** To transpile TypeScript, new Javascript features, and other things with compatibility purposes.
 * **TypeScript:** To have an environment with types.
 * **EsLint:** To automatically analyze the code style and fix it.
-* **ReactJs:** As the main framework to build the app interface. To take advantatge of TypeScript, classic class components are used instead of hooks.
+* **ReactJs:** As the main framework to build the app interface.
 * **Recoil:** For a simple app state management.
 * **Axios:** To perform http requests.
 * **SCSS:** As a CSS pre-processor.
