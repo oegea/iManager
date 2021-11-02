@@ -1,6 +1,6 @@
 # iManager
 
-[Known Vulnerabilities](https://snyk.io/test/github/oegea/iManager/badge.svg)
+[![Build Status](https://travis-ci.com/oegea/iManager.svg?branch=master)](https://travis-ci.com/oegea/iManager) [![Coverage Status](https://coveralls.io/repos/github/oegea/iManager/badge.svg?branch=master)](https://coveralls.io/github/oegea/iManager?branch=master) ![Known Vulnerabilities](https://snyk.io/test/github/oegea/iManager/badge.svg)
 
 ## What's this
 
