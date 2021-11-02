@@ -1,5 +1,7 @@
 # iManager
 
+[Known Vulnerabilities](https://snyk.io/test/github/oegea/iManager/badge.svg)
+
 ## What's this
 
 iManager is a basic frontend application that allows the end-user to navigate through an items catalog.
