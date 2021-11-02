@@ -227,9 +227,9 @@ Components are as small, atomics and decoupled from the rest of the application 
 
 This should help to ensure a better decoupled environment, and help the developer to increase focus while working on an specific component.
 
-### Final refinations
+### Refinations
 
-As a final step, a `.gitignore` file has been created to ignore `node_modules` and `dist` directories.
+A `.gitignore` file has been created to ignore `node_modules` and `dist` directories.
 
 After this, a git repository has been created to work on the project.
 
@@ -272,3 +272,11 @@ The first interface aims to offer an easy way to change the http client from axi
 The second one aims to offer also an easy way to implement a real web service to retrieve items, and abstracts the sorting and filtering logic that at this moment is performed by the browser, but in a real environment will be likely performed by a web service.
 
 # 4. Refining and automation
+
+As a final step, the project has been made public in Github and the following tools have been configured to automate some tasks:
+
+* Travis: To automatically test the project every time a commit is submited.
+* Snyk: To automatically detect vulnerabilities and notice the author about them.
+* Coveralls: To display a badge informing about the code coverage percentatge in the repository.
+
+Also, some unit tests have been reviewed and improved.
