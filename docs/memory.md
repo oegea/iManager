@@ -4,9 +4,9 @@ This document describes the process of ideating, designing and implementing a (b
 
 # Development process
 
-The process has been divided into four different phases that are fully documented in this document. Please note that this project follows a waterfall approach, because it needs to be short and only one iteration is expected. 
+The process has been divided into four different phases that are fully documented here. Please note that this project follows a waterfall approach, because it needs to be short and only one iteration is expected. 
 
-In case of receiving feedback and having a chance to improve the result, any improvements will be implemented iterating over the same four phases, and a more agile approach would then be adopted. 
+In case of receiving feedback and having a chance to improve the result, any improvements will be implemented iterating over the same four phases, resulting on a more agile approach. 
 
 # Phases of development
 
@@ -26,7 +26,7 @@ These are the phases that will drive the project:
 
 Offer to the Item Managers an application with which be able to find items on an inventory, and mark their favorites ones. 
 
-All of this with a modern and intuitive user interface, and ensuring that best technical practices are followed during the process.
+All of this with a modern and intuitive user interface, and ensuring that best technical practices are followed during the implementation.
 
 ## Personas
 
@@ -36,55 +36,55 @@ As this is a small project, it has only one persona which it's named as "Item Ma
 
 ### Basic Interface
 
-* **As a:** Item Manager,
+* **As an:** Item Manager,
 * **I want to:** Have a basic and cohesionate user interface,
 * **So that:** I can easily navigate through the application.
 
 ### List of Items
 
-* **As a:** Item Manager,
+* **As an:** Item Manager,
 * **I want to:** Be able to know existent items reading them from a list,
 * **So that:** I can know the title, description, price and e-mail of each item, and also take a look of its photo.
 
 ### Items pagination
 
-* **As a:** Item Manager,
+* **As an:** Item Manager,
 * **I want to:** Be able to list items in group of fives, and move between groups (pages),
 * **So that:** I can navigate between items in an easier way.
 
 ### Search Items
 
-* **As a:** Item Manager,
+* **As an:** Item Manager,
 * **I want to:** Be able to find items by title, description, price or e-mail,
 * **So that:** I can easily find items.
 
 ### Sort items by title, description, price or e-mail
 
-* **As a:** Item Manager,
+* **As an:** Item Manager,
 * **I want to:** Be able to sort items by title, description, price or e-mail,
 * **So that:** I can easily sort items.
 
 ### Save items as favourites
 
-* **As a:** Item Manager,
+* **As an:** Item Manager,
 * **I want to:** Be able to mark an item as favourite, from the main list,
 * **So that:** I can later recover favourite items.
 
 ### Modal showing only title and picture
 
-* **As a:** Item Manager,
+* **As an:** Item Manager,
 * **I want to:** Access my favourite items and know their title and picture,
 * **So that:** I can know which are my favourite items.
 
 ### Search by title in the modal of favourite items
 
-* **As a:** Item Manager,
+* **As an:** Item Manager,
 * **I want to:** Be able to search by title in my favourite items modal,
 * **So that:** I can look for an specific item.
 
 ### Remove items from the favourite items list
 
-* **As a:** Item Manager,
+* **As an:** Item Manager,
 * **I want to:** Be able to remove items from my favourite list,
 * **So that:** I can remove items that are no longer my favourite ones.
 
