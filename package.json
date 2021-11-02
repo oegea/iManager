@@ -12,7 +12,8 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:verbose": "jest --verbose",
-    "new-component": "cp -R src/components/Button src/components/$npm_config_name"
+    "new-component": "cp -R src/components/Button src/components/$npm_config_name",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
   },
   "author": "Oriol Egea",
   "license": "MIT",
@@ -49,6 +50,7 @@
   "dependencies": {
     "@types/react": "^17.0.33",
     "axios": "^0.24.0",
+    "coveralls": "^3.1.1",
     "enzyme": "^3.11.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
