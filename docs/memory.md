@@ -1,6 +1,6 @@
 # iManager
 
-This document describes the process of ideating, designing and implementing a (basic but) modern frontend application.
+This document describes the process of ideating, designing and implementing a basic (yet modern) frontend application.
 
 # Development process
 
@@ -8,29 +8,29 @@ The process has been divided into four different phases that are fully documente
 
 In case of receiving feedback and having a chance to improve the result, any improvements will be implemented iterating over the same four phases, resulting on a more agile approach. 
 
-# Phases of development
+# Development phases
 
-These are the phases that will drive the project:
+These are the phases that have led the project:
 
-1. Ideation and definition: Which ranges from the project goal definition, to the user stories writing and the prototype creation.
+1. Ideation and definition: Which includes the project goal definition, user stories writing and the prototype creation.
 
 2. Definition of technology and best practices strategy.
 
 3. Application implementation: This phase includes the project scaffolding creation, testing and implementation.
 
-4. Refining and automation: At this latest stage, the project will be refined and uploaded to a public repository. A basic CI will be also implemented to automate tests execution.
+4. Refining and automation: At this latest stage, the project has been refined and uploaded to a public repository. A basic CI has been also implemented to automate test execution.
 
 # 1. Ideation and definition
 
 ## Project Goal
 
-Offer to the Item Managers an application with which be able to find items on an inventory, and mark their favorites ones. 
+Offer to Item Managers an application with which allow them to find items on an inventory, and mark their favorites ones. 
 
 All of this with a modern and intuitive user interface, and ensuring that best technical practices are followed during the implementation.
 
 ## Personas
 
-As this is a small project, it has only one persona which it's named as "Item Manager" in the user stories.
+As this is a small project, it has only one persona who is named as "Item Manager" in the user stories.
 
 ## User Stories
 
@@ -44,7 +44,7 @@ As this is a small project, it has only one persona which it's named as "Item Ma
 
 * **As an:** Item Manager,
 * **I want to:** Be able to know existent items reading them from a list,
-* **So that:** I can know the title, description, price and e-mail of each item, and also take a look of its photo.
+* **So that:** I can know the title, description, price and  owner's e-mail of each item, and also take a look of its photo.
 
 ### Items pagination
 
@@ -114,7 +114,7 @@ These are the selected libraries to implement the project:
 
 ## Best practices guidelines
 
-There are a lot of good practices that could be implemented during an application development, but in this project we have focused on these topics:
+There are a lot of good practices that could be implemented during an application design, but in this project we have focused on these topics:
 
 * **Keep everything small:** 
 
@@ -122,27 +122,29 @@ There are a lot of good practices that could be implemented during an applicatio
 
 * **Atomic components should be decoupled from the app:**
 
-  Small components should be atomic, and should be able to work without requiring common dependencies from the application. Although this rule has not been applied in a very strict way, it has guided the application development during all the process.
+  Small components should be atomic, and should be able to work without requiring common dependencies from the application. 
+  
+  Although this rule has not been applied in a very strict way, it has guided the application development throughout the process.
 
 * **Comment methods and complex decisions:** 
 
   To improve navigation through methods and make future developments easier, each method needs to be documented with JsDocs. 
 
-  Also, code comments must reflect the reason behind complex or not-obvious decisions, instead of describe what's doing the code flow (because the code needs to be self-descriptive).
+  Also, code comments must reflect the reason behind complex or unobvious decisions, instead of describing what's making the code flow.
 
 * **Test everything:** 
 
   Unit and integration tests are a must in this application. Everything should be tested to ensure that the application works as expected.
 
-* **Use the adapter pattern whenever is possible:** 
+* **Use the adapter pattern whenever possible:** 
 
-  As this is a basic application that could be evolved on a future to use a real api, it's a must to ensure that adaptor pattern is used, specially in those parts that connects the frontend app with third party systems or services.
+  As this is a basic application that could be evolved on a future to use a real api, it's a must to ensure that adaptor pattern is used, especially in those parts that connect the frontend app with third party systems or services.
 
 # 3. Application implementation
 
 This is a memory of all followed steps to implement the final application.
 
-## Project initializing process
+## Project initialization
 
 ### Creating the project
 
@@ -157,7 +159,7 @@ As a first step, the project needs to be initialized with `npm init`.
 - `npm i --save-dev webpack webpack-cli webpack-dev-server html-webpack-plugin`
 
 Before configuring `webpack`, `babel` has been installed with the following command: 
-q
+
 - `npm i --save-dev @babel/core babel-loader @babel/preset-env @babel/preset-react @babel/preset-typescript @babel/plugin-transform-runtime`.
 
 With these libraries, and after configuring them, the application will be able to be bundled and transpiled. 
@@ -206,11 +208,11 @@ The following command has been executed to install EsLint in the project:
 
 * `npm i --save-dev eslint`
 
-After that, the command `eslint --init` has ben runned to initialize EsLint. And the Visual Studio Code plugin has been also installed and configured to enable automatic errors detecting and fixing.
+After that, the command `eslint --init` has ben runned to initialize EsLint. And the Visual Studio Code plugin has been also installed and configured to enable automatic error detection and correction.
 
 ### Project scaffolding
 
-To organize and ensure project tidiness, the following project scaffolding has been configured:
+To organize and ensure project's tidiness, the following project scaffolding has been created:
 
 * \_\_tests\_\_
 * \_\_mocks\_\_
@@ -221,11 +223,11 @@ To organize and ensure project tidiness, the following project scaffolding has b
 * libs
 * api
 
-The purpose of each directory should be self-descriptible enough to understand the project. However, it's important to remark that these common folders only contain files that are required in more than one module of the project.
+The purpose of each directory should be self-descriptive enough to understand the project. However, it's important to remark that these common folders only contain files that are required in more than one module of the project.
 
-Components are as small, atomics and decoupled from the rest of the application as possible, so they have their required files and dependencies inside their own specific folder.
+Components are as small, atomic and decoupled from the rest of the application as possible, so they have their required files and dependencies inside their own specific folder.
 
-This should help to ensure a better decoupled environment, and help the developer to increase focus while working on an specific component.
+This should help ensuring a better decoupled environment, and increase the developer's focus while working on an specific component.
 
 ### Refinations
 
@@ -237,11 +239,11 @@ After this, a git repository has been created to work on the project.
 
 The first step in the implementation, has been to develop low-level visual components required in the application.
 
-For this stage, prototype and user stories have been took in consideration to know which components were required.
+For this stage, prototype and user stories have been taken in consideration to know which components were required.
 
-Components have been implemented by writing unit tests first, then making the real implementation, and finally manual testing the result (invoking the components from a browser) and refining the result, styles and the unit tests.
+Components have been implemented by writing unit tests first, then making the real implementation, and finally manually testing the result (invoking the components from a browser) and refining the result, styles and the unit tests.
 
-This is the order in which components have been developed, starting from smaller ones:
+This is the order in which components have been developed, starting from the smaller ones:
 
 * Button
 * SearchBar
@@ -253,7 +255,7 @@ This is the order in which components have been developed, starting from smaller
 
 ## Basic logic and state management
 
-On this stage have been implemented all components that implement the application logic or interact with the application state, which are the following:
+All components that implement the application logic or interact with the application state have been implemented on this stage.
 
 * AppHandler
 * ItemCardHandler
@@ -276,7 +278,7 @@ The second one aims to offer also an easy way to implement a real web service to
 As a final step, the project has been made public in Github and the following tools have been configured to automate some tasks:
 
 * Travis: To automatically test the project every time a commit is submited.
-* Snyk: To automatically detect vulnerabilities and notice the author about them.
-* Coveralls: To display a badge informing about the code coverage percentatge in the repository.
+* Snyk: To automatically detect vulnerabilities and warn the author about them.
+* Coveralls: To display a badge informing about the code coverage percentage in the repository.
 
 Also, some unit tests have been reviewed and improved.
