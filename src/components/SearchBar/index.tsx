@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 
 // Constants
-import { DEFAULT_PLACEHOLDER, ENTER_KEY } from './search-bar.constants';
+import { DEFAULT_PLACEHOLDER } from './search-bar.constants';
+import { ENTER } from '../../constants/keys';
 
 // Interfaces
 import SearchBarProps from './interfaces/props';
@@ -21,7 +22,7 @@ const SearchBar = (props: SearchBarProps) => {
    * @param event Event data
    */
   const onInputKeyPress = (event:{key:string}) => {
-    if (event.key === ENTER_KEY && onSearch) { onSearch(searchText); }
+    if (event.key === ENTER && onSearch) { onSearch(searchText); }
   };
 
   /**

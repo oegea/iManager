@@ -4,6 +4,7 @@ import Toolbar from '.';
 
 // Constants
 import { SECONDARY_BUTTON_BACKGROUND, SECONDARY_BUTTON_COLOR } from '../Button/button.constants';
+import { ENTER } from '../../constants/keys';
 
 describe('Test Toolbar tests', () => {
   // Constants
@@ -53,7 +54,7 @@ describe('Test Toolbar tests', () => {
     it('should call the expected callback when a search is performed', () => {
       const callback = jest.fn();
       const toolbar = mount(<Toolbar label={DEFAULT_LABEL} onSearch={callback} />);
-      toolbar.find('input').simulate('keypress', { key: 'Enter' });
+      toolbar.find('input').simulate('keypress', { key: ENTER });
       expect(callback).toBeCalled();
     });
 

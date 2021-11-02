@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import Button from '.';
+import { ENTER, SHIFT } from '../../constants/keys';
 
 // Constants
 import { DEFAULT_BUTTON_BACKGROUND, DEFAULT_BUTTON_COLOR } from './button.constants';
@@ -9,8 +10,6 @@ describe('Test Button component', () => {
   // Constants
   const DEFAULT_LABEL = 'Default Label';
   const DEFAULT_BUTTON_CLASS = 'button';
-  const ENTER_KEY = 'Enter';
-  const SHIFT_KEY = 'Shift';
 
   // Common variables
   let wrapper : ShallowWrapper<typeof Button>;
@@ -65,7 +64,7 @@ describe('Test Button component', () => {
     const clickCallback = jest.fn();
     wrapper = shallow(<Button onClick={clickCallback}>{DEFAULT_LABEL}</Button>);
 
-    wrapper.find('div').simulate('keypress', { key: ENTER_KEY });
+    wrapper.find('div').simulate('keypress', { key: ENTER });
 
     expect(clickCallback).toBeCalled();
   });
@@ -74,7 +73,7 @@ describe('Test Button component', () => {
     const clickCallback = jest.fn();
     wrapper = shallow(<Button onClick={clickCallback}>{DEFAULT_LABEL}</Button>);
 
-    wrapper.find('div').simulate('keypress', { key: SHIFT_KEY });
+    wrapper.find('div').simulate('keypress', { key: SHIFT });
 
     expect(clickCallback).toBeCalledTimes(0);
   });

@@ -3,12 +3,12 @@ import { shallow, ShallowWrapper } from 'enzyme';
 import SearchBar from '.';
 
 // Constants
-import { DEFAULT_PLACEHOLDER, ENTER_KEY } from './search-bar.constants';
+import { DEFAULT_PLACEHOLDER } from './search-bar.constants';
+import { ENTER, SHIFT } from '../../constants/keys';
 
 describe('Test SearchBar component', () => {
   // Constants
   const DEFAULT_VALUE = 'Test Value';
-  const SHIFT_KEY = 'Shift';
 
   // Common variables
   let wrapper : ShallowWrapper<typeof SearchBar>;
@@ -50,7 +50,7 @@ describe('Test SearchBar component', () => {
       const enterCallback = jest.fn();
       wrapper = shallow(<SearchBar value={DEFAULT_VALUE} onSearch={enterCallback} />);
 
-      wrapper.find('input').simulate('keypress', { key: ENTER_KEY });
+      wrapper.find('input').simulate('keypress', { key: ENTER });
 
       expect(enterCallback).toBeCalled();
     });
@@ -59,7 +59,7 @@ describe('Test SearchBar component', () => {
       const keyCallback = jest.fn();
       wrapper = shallow(<SearchBar value={DEFAULT_VALUE} onSearch={keyCallback} />);
 
-      wrapper.find('input').simulate('keypress', { key: SHIFT_KEY });
+      wrapper.find('input').simulate('keypress', { key: SHIFT });
 
       expect(keyCallback).toBeCalledTimes(0);
     });

@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import Modal from '.';
+import { ENTER, SHIFT } from '../../constants/keys';
 
 // Constants
 
@@ -31,13 +32,13 @@ describe('Test Modal', () => {
   });
 
   it('should invoke a callback function when close button is focused and enter is pressed', () => {
-    wrapper.find('.close').simulate('keypress', { key: 'Enter' });
+    wrapper.find('.close').simulate('keypress', { key: ENTER });
 
     expect(callback).toBeCalled();
   });
 
   it('should not invoke a callback function when close button is focused and other key different than enter is pressed', () => {
-    wrapper.find('.close').simulate('keypress', { key: 'Shift' });
+    wrapper.find('.close').simulate('keypress', { key: SHIFT });
 
     expect(callback).toBeCalledTimes(0);
   });

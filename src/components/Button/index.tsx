@@ -2,7 +2,8 @@
 import React from 'react';
 
 // Constants
-import { DEFAULT_BUTTON_BACKGROUND, DEFAULT_BUTTON_COLOR, ENTER_KEY } from './button.constants';
+import { DEFAULT_BUTTON_BACKGROUND, DEFAULT_BUTTON_COLOR } from './button.constants';
+import { ENTER } from '../../constants/keys';
 
 // Interfaces
 import ButtonProps from './interfaces/props';
@@ -28,7 +29,7 @@ const Button = (props:ButtonProps) => {
    * @param event Event data
    */
   const onKeyPress = (event:{key:string}) => {
-    if (event.key === ENTER_KEY && onClick) { onClick(); }
+    if (event.key === ENTER && onClick) { onClick(); }
   };
 
   // Render

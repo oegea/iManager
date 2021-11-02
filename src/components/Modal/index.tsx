@@ -4,6 +4,9 @@ import React from 'react';
 // Interfaces
 import ModalProps from './interfaces/props';
 
+// Constants
+import { ENTER } from '../../constants/keys';
+
 /**
  * Modal to display content
  * @param props Properties
@@ -17,7 +20,7 @@ const Modal = (props:ModalProps) => {
    * @param event Event data
    */
   const onKeyPress = (event:{key:string}) => {
-    if (event.key === 'Enter' && onClose) { onClose(); }
+    if (event.key === ENTER && onClose) { onClose(); }
   };
   return (
     <div className="modal-wrapper">
