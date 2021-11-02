@@ -5,7 +5,7 @@
 ## What's this
 
 iManager is a basic frontend application that allows the end-user to navigate through an items catalog.
-The main purposes of developing this, was to create a project with `react hooks` and test components with `jest` and `enzyme`. You can read the full project memory [here](./docs/memory.md).
+The main purpose of developing this, was to create a project with `react hooks` and test components with `jest` and `enzyme`. You can read the full project memory [here](./docs/memory.md).
 
 ## Required dependencies
 
