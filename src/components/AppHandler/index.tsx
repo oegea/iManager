@@ -1,9 +1,9 @@
 // Core dependencies
 import React, { useState, useEffect } from 'react';
 import {
-  atom,
   useSetRecoilState,
   useRecoilState,
+  useRecoilValue,
 } from 'recoil';
 
 // Interfaces
@@ -13,31 +13,27 @@ import Item from '../../interfaces/item';
 import Toolbar from '../Toolbar';
 import ItemsGrid from '../ItemsGrid';
 import ItemsPagerHandler from '../ItemsPagerHandler';
-import Modal from '../Modal';
+import ModalHandler from '../ModalHandler';
 
 // Libs
 import AxiosClient from '../../libs/axios-client';
 
 // Constants
-import { LOADED_ITEMS, CURRENT_PAGE } from '../../constants/atoms';
+import { LOADED_ITEMS_STATE, CURRENT_PAGE_STATE, FAVOURITES_DIALOG_SHOWING } from '../../constants/atoms';
 
 // Apis
 import ItemApi from '../../api/item-api';
-
-// Initialize Recoil
-const loadedItemsState = atom(LOADED_ITEMS);
-const currentPageState = atom(CURRENT_PAGE);
 
 const AppHandler = () => {
   const [items, setItems] = useState<Array<Item>>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [searchText, setSearchText] = useState<string>('');
   const [sortBy, setSortBy] = useState<string>('');
-  const [showFavouritesModal, setShowFavouritesModal] = useState<boolean>(false);
 
   // Recoil
-  const setLoadedItems = useSetRecoilState(loadedItemsState);
-  const [currentPage, setCurrentPage] = useRecoilState(currentPageState);
+  const setLoadedItems = useSetRecoilState(LOADED_ITEMS_STATE);
+  const [currentPage, setCurrentPage] = useRecoilState(CURRENT_PAGE_STATE);
+  const setShowFavouritesModal = useSetRecoilState(FAVOURITES_DIALOG_SHOWING);
 
   useEffect(() => {
     const itemApi = new ItemApi(new AxiosClient());
@@ -77,13 +73,7 @@ const AppHandler = () => {
         {!isLoading && <ItemsGrid items={items} />}
       </div>
       <ItemsPagerHandler />
-      {showFavouritesModal && (
-      <Modal
-        onClose={() => { setShowFavouritesModal(false); }}
-      >
-        Hola
-      </Modal>
-      )}
+      <ModalHandler />
     </>
   );
 };

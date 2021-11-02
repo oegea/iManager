@@ -48,10 +48,12 @@ const SearchBar = (props: SearchBarProps) => {
         onChange={onInputChange}
         onKeyPress={onInputKeyPress}
       />
+      {sortableFields.length > 0 && (
       <select onChange={onSelectChange} value={sortBy}>
         <option disabled>Sort by</option>
         {sortableFields.map((field) => <option key={field}>{field}</option>)}
       </select>
+      )}
     </div>
   );
 };

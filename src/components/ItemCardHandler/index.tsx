@@ -1,21 +1,20 @@
 // Core dependencies
 import React from 'react';
 import {
-  atom,
   useRecoilState,
 } from 'recoil';
 
 // Constants
-import { FAVOURITE_ITEMS } from '../../constants/atoms';
+import { FAVOURITE_ITEMS_STATE } from '../../constants/atoms';
 
 // Components
 import ItemCard from '../ItemCard';
 
+// Libs
+import ItemUtils from '../../libs/item-utils';
+
 // Interfaces
 import Item from '../../interfaces/item';
-
-// Initialize Recoil
-const favouriteItemsState = atom(FAVOURITE_ITEMS);
 
 /**
  * Prints a sellable item with the needed logic to add it to favourites
@@ -30,23 +29,9 @@ const ItemCardHandler = (props: Item) => {
     title, description, price, email, image,
   } = props;
 
-  const [favouriteItems, setFavouriteItems] = useRecoilState<Item[]>(favouriteItemsState);
+  const [favouriteItems, setFavouriteItems] = useRecoilState<Item[]>(FAVOURITE_ITEMS_STATE);
 
   // Functions
-
-  /**
-   * Returns the index of an item in the favourites array
-   * @param itemTitle Item title
-   * @param itemEmail Seller e-mail
-   * @returns -1 if the item is not favourite. Otherwise, the index is returned
-   */
-  const isFavourite = (itemTitle: string, itemEmail: string):number => {
-    const existentItemIndex = favouriteItems.findIndex(
-      (favouriteItem) => favouriteItem.title === itemTitle && favouriteItem.email === itemEmail,
-    );
-
-    return existentItemIndex;
-  };
 
   /**
    * Removes an item from the favourites array
@@ -70,7 +55,7 @@ const ItemCardHandler = (props: Item) => {
    * Event executed when the item button is clicked
    */
   const onClick = () => {
-    const index = isFavourite(title, email);
+    const index = ItemUtils.isFavourite(title, email, favouriteItems);
     // Item already exists
     if (index !== ALREADY_EXISTS_INDEX) {
       removeFromFavourites(index);
@@ -88,7 +73,7 @@ const ItemCardHandler = (props: Item) => {
       price={price}
       email={email}
       image={image}
-      buttonLabel={isFavourite(title, email) === -1 ? 'Add to favourites' : 'Remove from favourites'}
+      buttonLabel={ItemUtils.isFavourite(title, email, favouriteItems) === -1 ? 'Add to favourites' : 'Remove from favourites'}
       onButtonClick={onClick}
     />
   );

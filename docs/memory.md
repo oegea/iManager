@@ -122,7 +122,7 @@ There are a lot of good practices that could be implemented during an applicatio
 
 * **Atomic components should be decoupled from the app:**
 
-  Small components should be atomic, and should be able to work without requiring common dependencies from the application. Although this rule has not been applied in a though way, it has guided the application development during all the process.
+  Small components should be atomic, and should be able to work without requiring common dependencies from the application. Although this rule has not been applied in a very strict way, it has guided the application development during all the process.
 
 * **Comment methods and complex decisions:** 
 
@@ -248,12 +248,17 @@ This is the order in which components have been developed, starting from smaller
 * Toolbar
 * ItemCard
 * ItemsGrid
+* ItemsPager
+* Modal
 
 ## Basic logic and state management
 
-Although there were needed more visual components, at this point the implementation of logic-components started, starting by the implementation of the following components:
+On this stage have been implemented all components that implement the application logic or interact with the application state, which are the following:
 
-* ItemCardHandler (which basically is a wrapper for the ItemCard component, and manages the state of favourite items)
+* AppHandler
+* ItemCardHandler
+* ItemsPagerHandler
+* ModalHandler
 
 ## Data retrieving
 
@@ -265,7 +270,5 @@ Two interfaces have been described to retrieve data:
 The first interface aims to offer an easy way to change the http client from axios to another if it's required in the future.
 
 The second one aims to offer also an easy way to implement a real web service to retrieve items, and abstracts the sorting and filtering logic that at this moment is performed by the browser, but in a real environment will be likely performed by a web service.
-
-## Building the logic and 
 
 # 4. Refining and automation

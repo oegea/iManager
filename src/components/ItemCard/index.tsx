@@ -39,19 +39,23 @@ const ItemCard = (props:ItemCardProps) => {
       <div className="image">
         <img src={image} alt={title} />
       </div>
-      <div className="price">
-        {price}
-        {' '}
-        EUR
-      </div>
+      {price && (
+        <div className="price">
+          {price}
+          {' '}
+          EUR
+        </div>
+      )}
       <div className="title">{title}</div>
 
-      <div className="description">{description}</div>
-      <div className="email">
-        Seller:
-        {' '}
-        {email}
-      </div>
+      {description && <div className="description">{description}</div>}
+      {email && (
+        <div className="email">
+          Seller:
+          {' '}
+          {email}
+        </div>
+      )}
       <div className="buttons">
         <Button onClick={onClick}>{buttonLabel}</Button>
       </div>

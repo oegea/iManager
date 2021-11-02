@@ -1,0 +1,35 @@
+
+.body{
+    .searchbar-component {
+        input[type=text]{
+            flex-basis: 100% !important;
+        }
+    }
+}
+.favourite-items{
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;  
+    margin-top: 20px;
+
+    @media (min-width: 750px) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: 1150px){
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media (min-width: 1400px){
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+
+}
+
+.no-favourite-items{
+    margin-top: 40px;
+    text-align: center;
+    font-size: 25px;
+}
