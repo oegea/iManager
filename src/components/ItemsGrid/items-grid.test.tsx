@@ -6,7 +6,7 @@ import ItemCardProps from '../ItemCard/interfaces/props';
 // Constants
 import DEFAULT_ITEMS_ARRAY from '../../__mocks__/default-items-array';
 
-describe('Test ItemsGrid tests', () => {
+describe('Test ItemsGrid component', () => {
   // Constants
   const ITEMS:Array<ItemCardProps> = DEFAULT_ITEMS_ARRAY;
 

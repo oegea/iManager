@@ -5,7 +5,7 @@ import { ENTER, SHIFT } from '../../constants/keys';
 
 // Constants
 
-describe('Test Modal', () => {
+describe('Test Modal component', () => {
   // Constants
   const DEFAULT_LABEL = 'Test Label';
 

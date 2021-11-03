@@ -4,7 +4,7 @@ import ItemsPager from '.';
 
 // Constants
 
-describe('Test ItemsPager', () => {
+describe('Test ItemsPager component', () => {
   // Constants
   const DEFAULT_LABEL = 'Test Label';
 
