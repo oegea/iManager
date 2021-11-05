@@ -29,6 +29,7 @@ const AppHandler = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [searchText, setSearchText] = useState<string>('');
   const [sortBy, setSortBy] = useState<string>('');
+  const [error, setError] = useState<string>('');
 
   // Recoil
   const setLoadedItems = useSetRecoilState(LOADED_ITEMS_STATE);
@@ -36,16 +37,21 @@ const AppHandler = () => {
   const setShowFavouritesModal = useSetRecoilState(FAVOURITES_DIALOG_SHOWING);
 
   useEffect(() => {
-    const itemApi = new ItemApi(new AxiosClient());
-    itemApi.search(searchText, sortBy, 5, currentPage)
-      .then((itemsResult) => {
+    const apiFetch = async () => {
+      const itemApi = new ItemApi(new AxiosClient());
+      try {
+        const itemsResult = await itemApi.search(searchText, sortBy, 5, currentPage);
         setLoadedItems(itemsResult.length);
         setItems([...items, ...itemsResult]);
         setIsLoading(false);
-      })
-      .catch(() => {
+      } catch {
+        setError('Unhandled exception while recovering items');
+        setItems([]);
         setIsLoading(false);
-      });
+      }
+    };
+
+    apiFetch();
   }, [searchText, sortBy, currentPage]);
 
   const resetSearch = () => {
@@ -69,6 +75,7 @@ const AppHandler = () => {
     <>
       <Toolbar label="iManager" onFavouritesClick={() => { setShowFavouritesModal(true); }} onSearch={onSearch} onSortBy={onSortBy} />
       <div className="body-wrapper">
+        {error.length > 0 && <p>{error}</p>}
         {isLoading && <p>Loading...</p>}
         {!isLoading && <ItemsGrid items={items} />}
       </div>
