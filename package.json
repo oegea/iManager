@@ -14,8 +14,8 @@
     "test:verbose": "jest --verbose",
     "new-component": "cp -R src/components/Button src/components/$npm_config_name",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
-    "cypress:open": "cypress open",
-    "test:e2e": "npm start & wait-on http://localhost:3000 && cypress open"
+    "cypress:open": "npm start & wait-on http://localhost:3000 && cypress open && pkill -f node",
+    "test:e2e": "npm start & wait-on http://localhost:3000 && cypress run && pkill -f node"
   },
   "author": "Oriol Egea",
   "license": "MIT",
