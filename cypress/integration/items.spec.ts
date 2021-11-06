@@ -1,10 +1,13 @@
 describe('Items list tests', () => {
+  beforeEach(() => {
+    cy.intercept('**/items.json').as('getItems');
+  });
+
   it('should load the main page', () => {
     cy.visit('/');
   });
 
   it('should be able to mark an item as favourite', () => {
-    cy.intercept('**/items.json').as('getItems');
     cy.visit('/');
     cy.wait('@getItems');
     // Add two items to favourites
@@ -21,8 +24,6 @@ describe('Items list tests', () => {
   });
 
   it('should properly filter by text', () => {
-    cy.intercept('**/items.json').as('getItems');
-
     cy.get('.item').should('have.length', 5);
     cy.get('input').type('iPhone{enter}');
     cy.wait('@getItems');
@@ -32,8 +33,6 @@ describe('Items list tests', () => {
   });
 
   it('should properly sort items', () => {
-    cy.intercept('**/items.json').as('getItems');
-
     cy.get(':nth-child(1) > .title').should('have.text', 'iPhone 6S Oro');
     cy.get('select').select('Title');
     cy.wait('@getItems');
@@ -41,8 +40,6 @@ describe('Items list tests', () => {
   });
 
   it('should load more items if the pager button is pressed', () => {
-    cy.intercept('**/items.json').as('getItems');
-
     cy.get('.item').should('have.length', 5);
     cy.get('.items-pager > .button').click();
     cy.wait('@getItems');

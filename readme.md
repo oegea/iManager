@@ -1,6 +1,6 @@
 # iManager
 
-[![Build Status](https://travis-ci.com/oegea/iManager.svg?branch=master)](https://travis-ci.com/oegea/iManager) 
+[![Build Status](https://travis-ci.com/oegea/iManager.svg?branch=master)](https://app.travis-ci.com/github/oegea/iManager) 
 [![Coverage Status](https://coveralls.io/repos/github/oegea/iManager/badge.svg?branch=master)](https://coveralls.io/github/oegea/iManager?branch=master) 
 ![Known Vulnerabilities](https://snyk.io/test/github/oegea/iManager/badge.svg) 
 [![License](https://shields.io/badge/license-MIT-green)](license.md)
@@ -33,3 +33,5 @@ These are the supported commands:
 * `npm test`: Runs tests.
 * `npm run test:coverage`: Runs tests with a code coverage report.
 * `npm run test:verbose`: Runs tests in verbose mode.
+* `npm run test:e2e`: Runs end to end tests.
+* `npm run cypress:open`: Starts cypress UI.
