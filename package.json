@@ -65,6 +65,7 @@
     "setupFilesAfterEnv": [
       "<rootDir>/test-setup.js"
     ],
-    "testEnvironment": "jsdom"
+    "testEnvironment": "jsdom",
+    "testPathIgnorePatterns": ["/cypress/"]
   }
 }
