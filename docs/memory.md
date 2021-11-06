@@ -281,4 +281,9 @@ As a final step, the project has been made public in Github and the following to
 * Snyk: To automatically detect vulnerabilities and warn the author about them.
 * Coveralls: To display a badge informing about the code coverage percentage in the repository.
 
-Also, some unit tests have been reviewed and improved.
+These are the final steps completed on the project:
+
+* Configure Travis as the CI runner.
+* Add badges to the repository. 
+* Configure coveralls.
+* Install Cypress and create basic end to end tests. Add them to the Travis configuration file.
