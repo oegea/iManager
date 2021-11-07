@@ -11,16 +11,15 @@ describe('Items list tests', () => {
     cy.visit('/');
     cy.wait('@getItems');
     // Add two items to favourites
-    cy.get('.item').contains('iPhone 6S Oro').siblings('.buttons').contains('Add to favourites')
-      .click();
-    cy.get('.item').contains('Reloj de Daniel Wellington').siblings('.buttons').contains('Add to favourites')
-      .click();
+    cy.get('.item').contains('iPhone 6S Oro').siblings('.buttons').as('iPhoneButtons');
+    cy.get('.item').contains('Reloj de Daniel Wellington').siblings('.buttons').as('clockButtons');
+
+    cy.get('@iPhoneButtons').contains('Add to favourites').click();
+    cy.get('@clockButtons').contains('Add to favourites').click();
 
     // Now they should be removable
-    cy.get('.item').contains('iPhone 6S Oro').siblings('.buttons').contains('Remove from favourites')
-      .should('be.visible');
-    cy.get('.item').contains('Reloj de Daniel Wellington').siblings('.buttons').contains('Remove from favourites')
-      .should('be.visible');
+    cy.get('@iPhoneButtons').contains('Remove from favourites').should('be.visible');
+    cy.get('@clockButtons').contains('Remove from favourites').should('be.visible');
   });
 
   it('should properly filter by text', () => {
@@ -33,10 +32,11 @@ describe('Items list tests', () => {
   });
 
   it('should properly sort items', () => {
-    cy.get(':nth-child(1) > .title').should('have.text', 'iPhone 6S Oro');
+    cy.get(':nth-child(1) > .title').as('firstFavourite');
+    cy.get('@firstFavourite').should('have.text', 'iPhone 6S Oro');
     cy.get('select').select('Title');
     cy.wait('@getItems');
-    cy.get(':nth-child(1) > .title').should('have.text', 'Barbacoa');
+    cy.get('@firstFavourite').should('have.text', 'Barbacoa');
   });
 
   it('should load more items if the pager button is pressed', () => {
@@ -53,19 +53,21 @@ describe('Items list tests', () => {
 
   it('should be able to filter favourite items', () => {
     cy.get('.favourite-items > .item').should('have.length', 2);
-    cy.get('.body > .searchbar-component > input').type('Reloj{enter}');
+    cy.get('.body > .searchbar-component > input').as('searchInput');
+    cy.get('@searchInput').type('Reloj{enter}');
     cy.get('.favourite-items > .item').should('have.length', 1);
-    cy.get('.body > .searchbar-component > input').clear();
-    cy.get('.body > .searchbar-component > input').type('{enter}');
+    cy.get('@searchInput').clear();
+    cy.get('@searchInput').type('{enter}');
   });
 
   it('should be able to remove an item from favourites', () => {
-    cy.get('.favourite-items > .item').should('have.length', 2);
+    cy.get('.favourite-items > .item').as('favouriteItems');
+    cy.get('@favouriteItems').should('have.length', 2);
 
-    cy.get('.favourite-items > .item').contains('iPhone 6S Oro').siblings('.buttons').contains('Remove from favourites')
+    cy.get('@favouriteItems').contains('iPhone 6S Oro').siblings('.buttons').contains('Remove from favourites')
       .click();
 
-    cy.get('.favourite-items > .item').should('have.length', 1);
+    cy.get('@favouriteItems').should('have.length', 1);
   });
 
   it('should be able to close the favourites modal', () => {

@@ -1,5 +1,6 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin'); 
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   entry: './src/index.tsx',
   resolve: {
@@ -17,18 +18,18 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [{
-            loader: "style-loader" // creates style nodes from JS strings
+          loader: 'style-loader', // creates style nodes from JS strings
         }, {
-            loader: "css-loader" // translates CSS into CommonJS
+          loader: 'css-loader', // translates CSS into CommonJS
         }, {
-            loader: "sass-loader" // compiles Sass to CSS
-        }]
+          loader: 'sass-loader', // compiles Sass to CSS
+        }],
       },
     ],
   },
   devServer: {
     static: {
-        directory: path.join(__dirname, 'public'),
+      directory: path.join(__dirname, 'public'),
     },
     compress: true,
     port: 3000,
@@ -41,7 +42,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'index.html'),
+      template: path.join(__dirname, 'src/index.html'),
     }),
   ],
 };
