@@ -2,6 +2,7 @@
 import React from 'react';
 import { RecoilRoot } from 'recoil';
 import { mount, ReactWrapper } from 'enzyme';
+import { expect } from '@jest/globals';
 
 // Components
 import ModalHandler from '.';

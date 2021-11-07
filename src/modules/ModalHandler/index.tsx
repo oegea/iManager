@@ -5,9 +5,9 @@ import {
 } from 'recoil';
 
 // Components
-import Modal from '../Modal';
-import ItemCard from '../ItemCard';
-import SearchBar from '../SearchBar';
+import Modal from '../../components/Modal';
+import ItemCard from '../../components/ItemCard';
+import SearchBar from '../../components/SearchBar';
 
 // Constants
 import { FAVOURITES_DIALOG_SHOWING, FAVOURITE_ITEMS_STATE } from '../../constants/atoms';

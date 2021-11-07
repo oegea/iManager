@@ -8,7 +8,7 @@ import {
 import { FAVOURITE_ITEMS_STATE } from '../../constants/atoms';
 
 // Components
-import ItemCard from '../ItemCard';
+import ItemCard from '../../components/ItemCard';
 
 // Libs
 import ItemUtils from '../../libs/item-utils';

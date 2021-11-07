@@ -1,3 +1,4 @@
+import { expect } from '@jest/globals';
 import AxiosClient from '../libs/axios-client';
 
 // AxiosClient integration tests

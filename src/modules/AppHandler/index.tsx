@@ -10,8 +10,8 @@ import {
 import Item from '../../interfaces/item';
 
 // App components
-import Toolbar from '../Toolbar';
-import ItemsGrid from '../ItemsGrid';
+import Toolbar from '../../components/Toolbar';
+import ItemsGrid from '../../components/ItemsGrid';
 import ItemsPagerHandler from '../ItemsPagerHandler';
 import ModalHandler from '../ModalHandler';
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow, ShallowWrapper, mount } from 'enzyme';
+import { expect } from '@jest/globals';
 import Toolbar from '.';
 
 // Constants

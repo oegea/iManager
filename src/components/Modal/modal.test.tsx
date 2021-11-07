@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
+import { expect } from '@jest/globals';
 import Modal from '.';
 import { ENTER, SHIFT } from '../../constants/keys';
 

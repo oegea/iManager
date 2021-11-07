@@ -9,7 +9,7 @@ import {
 import { LOADED_ITEMS_STATE, CURRENT_PAGE_STATE } from '../../constants/atoms';
 
 // Components
-import ItemsPager from '../ItemsPager';
+import ItemsPager from '../../components/ItemsPager';
 
 // Interfaces
 

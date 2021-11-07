@@ -1,3 +1,4 @@
+import { expect } from '@jest/globals';
 import ItemUtils from '../libs/item-utils';
 import DEFAULT_ITEMS from '../__mocks__/default-items-array';
 

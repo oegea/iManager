@@ -4,7 +4,7 @@ import {
   RecoilRoot,
 } from 'recoil';
 
-import AppHandler from './components/AppHandler';
+import AppHandler from './modules/AppHandler';
 
 // Styles
 import './styles/index.scss';

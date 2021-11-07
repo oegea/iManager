@@ -194,7 +194,7 @@ After installing these libraries, webpack's configuration file has been modified
 
 Jest and Enzyme are used in this project to write unit and integration tests, to install these libraries, the following command has been executed:
 
-- `npm i --save-dev jest babel-jest enzyme @wojtekmaj/enzyme-adapter-react-17 jsdom jsdom-global @types/jest @types/enzyme`
+- `npm i --save-dev jest babel-jest enzyme @wojtekmaj/enzyme-adapter-react-17 jsdom jsdom-global @types/jest @types/enzyme @jest/globals`
 
 After installing these libraries, the `test-setup.js` file has been created to configure the enzyme adapter. Also, the `package.json` file has been modified to reference to the just created `test-setup.js` file.
 
@@ -217,6 +217,7 @@ To organize and ensure project's tidiness, the following project scaffolding has
 * \_\_tests\_\_
 * \_\_mocks\_\_
 * components
+* modules
 * constants
 * styles
 * interfaces
@@ -287,3 +288,4 @@ These are the final steps completed on the project:
 * Add badges to the repository. 
 * Configure coveralls.
 * Install Cypress and create basic end to end tests. Add them to the Travis configuration file.
+* Components have been divided into two folders: `components` directory for the visual and atomic components, and `modules` for components that interacts with the application state.

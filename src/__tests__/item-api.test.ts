@@ -1,3 +1,4 @@
+import { expect } from '@jest/globals';
 import FakeHttpClient from '../__mocks__/fake-http-client';
 import DEFAULT_ITEMS_ARRAY from '../__mocks__/default-items-array';
 import ItemApi from '../api/item-api';

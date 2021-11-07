@@ -3,6 +3,7 @@ import { mount, ReactWrapper } from 'enzyme';
 import {
   RecoilRoot,
 } from 'recoil';
+import { expect } from '@jest/globals';
 import ItemsPagerHandler from '.';
 import RecoilSetter from './items-pager-handler.recoil-setter';
 import RecoilObserver from './items-pager-handler.recoil-observer';

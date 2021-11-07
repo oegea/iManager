@@ -4,6 +4,9 @@ import { RecoilRoot } from 'recoil';
 import { mount, ReactWrapper } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 
+// Types
+import { expect } from '@jest/globals';
+
 // Http client
 import AxiosClient from '../../libs/axios-client';
 import FakeHttpClient from '../../__mocks__/fake-http-client';

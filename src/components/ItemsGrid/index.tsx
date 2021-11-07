@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Components
-import ItemCardHandler from '../ItemCardHandler';
+import ItemCardHandler from '../../modules/ItemCardHandler';
 
 // Constants
 

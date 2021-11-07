@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
+import { expect } from '@jest/globals';
 import ItemsGrid from '.';
 import ItemCardProps from '../ItemCard/interfaces/props';
 

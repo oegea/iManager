@@ -5,7 +5,7 @@
 @use '../components/ItemsGrid/items-grid.styles.scss';
 @use '../components/ItemsPager//item-pager.styles.scss';
 @use '../components/Modal/modal.styles.scss';
-@use '../components/ModalHandler/modal-handler.styles.scss';
+@use '../modules/ModalHandler/modal-handler.styles.scss';
 
 body { 
     background: white;

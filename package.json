@@ -51,6 +51,7 @@
     "webpack-dev-server": "^4.4.0"
   },
   "dependencies": {
+    "@jest/globals": "^27.3.1",
     "@types/react": "^17.0.33",
     "axios": "^0.24.0",
     "coveralls": "^3.1.1",
@@ -66,6 +67,8 @@
       "<rootDir>/test-setup.js"
     ],
     "testEnvironment": "jsdom",
-    "testPathIgnorePatterns": ["/cypress/"]
+    "testPathIgnorePatterns": [
+      "/cypress/"
+    ]
   }
 }
